@@ -13,6 +13,7 @@
     <h1>Mountains</h1> 
     <!-- THIRD MAKE A PLACE FOR THE MOUNTAIN LIST AND A DEFAULT OPTION -->
     <select id="list"><option value="">Select a Mountain</option></select>
+
     <!-- FIFTH ADD TARGET FOR RESULTS -->
     <p id="results"></p>
 </body>
@@ -31,8 +32,9 @@
     list.addEventListener("change", event=>{ 
         let mountain = mountainsArray.find(m=>m.name == event.target.value); //FIND DATA
         results.innerHTML = `<h1>${mountain.name}</h1>`; //SHOW RESULTS
-        results.innerHTML += mountain.desc
-        results.innerHTML += `<h3>${mountain.elevation}</h3>`; 
+        results.innerHTML += mountain.desc;
+        results.innerHTML += `<h3>Elevation: ${mountain.elevation} feet</h3>`; 
+        results.innerHTML += `<h3>Effort: ${mountain.effort}</h3>`; 
         results.innerHTML += `<img src="./images/${mountain.img}">`;
     }); //END LISTENER
 </script>
