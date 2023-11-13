@@ -1,2 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountains</title>
 
-<h1>Mountains</h1>
+    <!-- FIRST LOAD ALL THE MOUNTAINS LIKE THIS -->
+    <script src="./scripts/mountainData.js"></script>
+
+</head>
+<body>
+    <h1>Mountains</h1> 
+    <!-- THIRD MAKE A PLACE FOR THE MOUNTAIN LIST AND A DEFAULT OPTION -->
+    <select id="list"><option value="">Select a Mountain</option></select>
+    <!-- FIFTH ADD TARGET FOR RESULTS -->
+    <p id="results"></p>
+</body>
+<script>
+    // SECOND MAKE SURE DATA IS LOADED LIKE THIS
+    document.body.innerHTML += mountainsArray.length; //We should se 48 in the show preview
+
+    // FOURTH LOOP THROUGH ALL DATA AND ADD A NEW OPTION FOR EACH TO THE SELECT
+    mountainsArray.forEach(mountain => { //USE FOR EACH METHOD OF THE DATA TO GET 1 AT A TIME IN ARROW FUNCTION
+        const option = document.createElement("option"); //CREATE BLANK OPTION ELEMENT
+        option.innerHTML = mountain.name; // SET DISPLAY OPTION CONTENT TO NAME
+        list.appendChild(option); // PLACE OPTION IN THE SELECT LIST
+    }); //END FOR EACH
+
+    // SIXTH - LISTEN FOR LIST CHANGE SELECTION
+    list.addEventListener("change", event=>{ 
+        let mountain = mountainsArray.find(m=>m.name == event.target.value); //FIND DATA
+        results.innerHTML = `<h1>${mountain.name}</h1>`; //SHOW RESULTS
+        results.innerHTML += mountain.desc
+        results.innerHTML += `<h3>${mountain.elevation}</h3>`; 
+        results.innerHTML += `<img src="./images/${mountain.img}">`;
+    }); //END LISTENER
+</script>
+</html>
