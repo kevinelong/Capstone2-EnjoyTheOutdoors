@@ -25,14 +25,11 @@
 
 <body>
     <h1>Parks</h1>
-    <select id="locationsList">
-        <option value="">Select a Location:</option>
-    </select>
-    <select id="parkTypeList">
-        <option value="">Select a Park Type:</option>
-    </select>
+    <select id="locationsList"><option value="">Select a Location:</option></select>
+    <select id="parkTypeList"><option value="">Select a Park Type:</option></select>
     <div id="results">Results</div>
 </body>
+
 <script>
     locationsArray.forEach(location => locationsList.innerHTML += `<option>${location}</option>`);
     parkTypesArray.forEach(pt => parkTypeList.innerHTML += `<option>${pt}</option>`);
