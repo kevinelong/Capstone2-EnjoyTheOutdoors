@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", e => {
     // SECOND MAKE SURE DATA IS LOADED LIKE THIS
-    document.body.innerHTML += mountainsArray.length; //We should se 48 in the show preview
+    //document.body.innerHTML += mountainsArray.length; //We should se 48 in the show preview
 
     // FOURTH LOOP THROUGH ALL DATA AND ADD A NEW OPTION FOR EACH TO THE SELECT
     mountainsArray.forEach(mountain => { //USE FOR EACH METHOD OF THE DATA TO GET 1 AT A TIME IN ARROW FUNCTION

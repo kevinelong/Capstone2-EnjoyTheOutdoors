@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", e => {
     }
 
     function getCard(p) {
-        return `<div class="card">${p.LocationName}<div><b>${p.State}</b></div></div>`;
+        return `<div class="card">
+        ${p.LocationName}
+        <div><b>${p.State}</b></div></div>`;
     }
 
     function showResults() {
