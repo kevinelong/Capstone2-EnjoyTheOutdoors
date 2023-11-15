@@ -5,65 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parks</title>
-    <script src="./scripts/locationData.js"></script>
-    <script src="./scripts/parkTypeData.js"></script>
-    <script src="./scripts/nationalParkData.js"></script>
-    <style>
-        body{
-            vertical-align: top;
-        }
-        .card{
-            width: 29vw;
-            border: 1px solid black;
-            margin: 0.1em 0.1em 0 0;
-            display: inline-block;
-            vertical-align: top;
-            height: 20vh;
-        }
-    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="./data/locationData.js"></script>
+    <script src="./data/parkTypeData.js"></script>
+    <script src="./data/nationalParkData.js"></script>
+    
+    <script src="./scripts/parks.js"></script>
+    
 </head>
 
 <body>
+
     <h1>Parks</h1>
+    <a href="index.html">Home</a>
+
     <select id="locationsList"><option value="">Select a Location:</option></select>
     <select id="parkTypeList"><option value="">Select a Park Type:</option></select>
     <div id="results">Results</div>
 </body>
-
-<script>
-    locationsArray.forEach(location => locationsList.innerHTML += `<option>${location}</option>`);
-    parkTypesArray.forEach(pt => parkTypeList.innerHTML += `<option>${pt}</option>`);
-
-    //GLOBALS
-    let selectedLocation = "";
-    let selectedParkType = "";
-
-    locationsList.addEventListener("change", e => {
-        selectedLocation = e.target.value;
-        showResults();
-    });
-
-    parkTypeList.addEventListener("change", e => {
-        selectedParkType = e.target.value;
-        showResults();
-    });
-
-    function isMatch(p){
-        return (selectedLocation == "" || p.State == selectedLocation) &&
-                (selectedParkType == "" || p.LocationName.includes(selectedParkType));
-    }
-
-    function getCard(p){
-        return `<div class="card">${p.LocationName}<div><b>${p.State}</b></div></div>`;
-    }
-
-    function showResults() {
-        results.innerHTML = "";
-        const filtered = nationalParksArray.filter(isMatch);
-        filtered.forEach(p => results.innerHTML += getCard(p));
-    }
-
-    showResults();
-</script>
-
 </html>
